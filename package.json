@@ -1,9 +1,9 @@
 {
   "name": "06fanyi",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
-    "fy": "src/cli.ts"
+    "fy": "dist/cli.js"
   },
   "file": [
     "dist/**/*.js"
