@@ -1,5 +1,4 @@
-.idea
-node_modules
-yarn.lock
-src/private.ts
-dist
+/src/private.ts
+/dist/
+/node_modules/
+/.idea/
