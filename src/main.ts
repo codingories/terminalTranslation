@@ -7,22 +7,22 @@ const errorMap = {
   52001: '请求超时',
   52002: '系统错误',
   52003: '用户认证失败',
+  unknown: '服务器繁忙'
 }
 
-export const translate = (word) => {
+export const translate = (word: string) => {
   // console.log(md5('1')) // 引入不了，因为没有typescript类型文件,yarn add --dev @types/md5解决类型问题
   const salt = Math.random()
   const sign = md5(appId + word + salt + appSecret) // appSecret 一般都是放在服务器
-
-  let from, to;
-  if(/[a-zA-Z]/.test(word[0])){
+  let from, to
+  if (/[a-zA-Z]/.test(word[0])) {
     // 英->中
-    from = 'en';
-    to = 'zh';
-  }else{
+    from = 'en'
+    to = 'zh'
+  } else {
     // 中->英
-    from = 'zh';
-    to = 'en';
+    from = 'zh'
+    to = 'en'
   }
 
   const query: string = querystring.stringify({
@@ -41,10 +41,10 @@ export const translate = (word) => {
     method: 'GET'
   }
 
-
   const request = https.request(options, (response) => {
-    let chunks = []
+    let chunks: Buffer[] = []
     response.on('data', (chunk) => {
+      // console.log(chunk.constructor) // 用这个方法来判断constructor,也可以删除tsconfig.json
       chunks.push(chunk) // data 就是每次下载得到数据
     })
     response.on('end', () => {
@@ -66,7 +66,7 @@ export const translate = (word) => {
       } else {
         // console.log(object.trans_result[0].dst)
         object.trans_result.map(obj => {
-          console.log(obj.dst);
+          console.log(obj.dst)
         })
         process.exit(0) // 退出当前进程,0 表示正确
       }

@@ -11,7 +11,7 @@ program.version('0.0.1')
   .name('fy')
   .usage('<English>') // <必须选 [可选
   .arguments('<English>')
-  .action(function (english) {
+  .action(function (english: string) {
     translate(english)
   })
 program.parse(process.argv)
