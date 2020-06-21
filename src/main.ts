@@ -20,7 +20,6 @@ export const translate = (word) => {
     salt: salt, // 假的随机数
     sign: sign
     // ?q=banana&from=en&to=zh&appid=20200426000430230&salt=1435660288&sign=64f66d6aff1391bdd49775fc2824b9e6
-
   }) // 构造查询字符串
   const options = {
     hostname: 'api.fanyi.baidu.com',
