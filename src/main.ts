@@ -3,11 +3,14 @@ import * as querystring from 'querystring'
 import md5 = require('md5')
 import {appId, appSecret} from './private'
 
-const errorMap = {
+type ErrorMap = {
+  [k: string]: string
+}
+
+const errorMap: ErrorMap = { // 这个意思是errorMap只给了3个key，但是实际上可以是任意字符串
   52001: '请求超时',
   52002: '系统错误',
   52003: '用户认证失败',
-  unknown: '服务器繁忙'
 }
 
 export const translate = (word: string) => {
@@ -60,7 +63,7 @@ export const translate = (word: string) => {
 
       if (object.error_code) {
         if (object.error_code in errorMap) {
-          console.error(errorMap[object.error_code] || object.error_msg)
+          console.error(errorMap[object.error_code] || object.error_msg) // 对象只有3个key,不能把一个未知的字符串放到key里面
         }
         process.exit(2) // 退出当前进程
       } else {
