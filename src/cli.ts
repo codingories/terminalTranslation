@@ -1,7 +1,7 @@
 const {Command} = require('commander');
-const {translate} = require('./main')
+// const {translate} = require('./main')
 
-// import {translate} from "./main"; // 会报错
+import {translate} from "./main"; // js会报错，必须ts
 
 
 // const program = new commander.Command();
