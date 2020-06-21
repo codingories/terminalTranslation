@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const {Command} = require('commander')
 // const {translate} = require('./main')
 
@@ -14,4 +15,5 @@ program.version('0.0.1')
   .action(function (english: string) {
     translate(english)
   })
+
 program.parse(process.argv)

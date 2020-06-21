@@ -5,6 +5,9 @@
   "bin": {
     "fy": "src/cli.ts"
   },
+  "file": [
+    "dist/**/*.js"
+  ],
   "scripts": {
     "start": "ts-node-dev src/main.ts"
   },
