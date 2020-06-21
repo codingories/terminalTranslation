@@ -2,6 +2,9 @@
   "name": "06fanyi",
   "version": "0.0.1",
   "main": "index.js",
+  "bin": {
+    "fy": "src/cli.ts"
+  },
   "scripts": {
     "start": "ts-node-dev src/main.ts"
   },
